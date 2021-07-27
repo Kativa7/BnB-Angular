@@ -1,0 +1,43 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+}
+
+#logo {
+  text-transform: uppercase;
+  position: relative;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 35%;
+}
+.nav-links li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  letter-spacing: 3px;
+  font-size: 20px;
+}
+a:hover {
+  color: rgb(240, 96, 180);
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.menu {
+  font-size: 30px;
+}
+.menu:hover {
+  color: rgb(240, 96, 180);
+  cursor: pointer;
+  font-size: 40px;
+}
+
+

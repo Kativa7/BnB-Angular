@@ -1,58 +1,17 @@
-<!-- navbar -->
 
-<!-- sidenav -->
 <mat-sidenav-container>
   <mat-sidenav #sidenav role="navigation" mode='push'>
-    <mat-nav-list>
-      <div>
-        <a mat-list-item routerLink="/catalog"
-          ><mat-icon>explore</mat-icon>Browse our stays</a
-        >
-        <a mat-list-item routerLink="/create"
-          ><mat-icon>home</mat-icon>Become a host</a
-        >
-        <a mat-list-item routerLink="/create"
-          ><mat-icon>question_answer</mat-icon>Read about us</a
-        >
-      </div>
-    </mat-nav-list>
+    <app-sidebar ></app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <div id="logo"><a routerLink="/">Bed.And.Breakfast</a></div>
-      <ul class="nav-links">
-        <li><a routerLink="/login">LogIn</a></li>
-        <li><a routerLink="/register">Register Now</a></li>
-        <li><a routerLink="/profile">View Profile</a></li>
-        <li><a routerLink="/logout">Logout</a></li>
-      </ul>
-    </mat-toolbar>
+    <app-navbar (onToggleSideNav)='sidenav.toggle()'></app-navbar>
     <main>
       <router-outlet></router-outlet>
+      <app-footer></app-footer>
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
 
-<!-- jumbotron -->
 
-<div class="hero-image">
-  <div class="hero-text">
-    <h1>Start exploring now</h1>
-    <p>Find a place to stay for your next holiday or offer one yourself</p>
-    <button mat-raised-button color="accent">Start Now</button>
-  </div>
-</div>
 
-<!-- footer -->
-<footer>
-  <h1>&copy; BED.AND.BREAKFAST</h1>
-  <ul>
-    <li><mat-icon>share</mat-icon></li>
-    <li><mat-icon>public</mat-icon></li>
-    <li><mat-icon>photo_camera</mat-icon></li>
-    <mat-icon>nature</mat-icon>
-  </ul>
-</footer>
+
