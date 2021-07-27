@@ -1,7 +1,7 @@
 /* jumbotron */
 
 .hero {
-    background-image: url('https://cdn.pixabay.com/photo/2016/09/19/22/46/lake-1681485_960_720.jpg');
+background-image: url('../../../assets/lake.jpg');
 
   background-position: center center;
   background-repeat: no-repeat;
@@ -22,13 +22,15 @@ h1,
 p {
   font-size: 25px;
   letter-spacing: 3px;
+  margin-bottom: 24px;
 }
 
-.hero-text button {
+/* .hero-text button {
   margin-top: 15px;
-}
-button:hover {
-  color: rgb(55, 57, 187);
-  border: 2px solid rgb(55, 57, 187);
+  color: rgb(111, 117, 116);
+} */
+/* button:hover {
+  color: rgb(111, 117, 116);
+  border: 2px solid rgb(111, 117, 116);
   font-size: 16px;
-} 
+}  */

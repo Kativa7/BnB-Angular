@@ -1,8 +1,10 @@
 mat-toolbar {
+background-color: rgb(111, 117, 116);
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
+ 
 }
 
 #logo {
@@ -26,16 +28,17 @@ a {
   font-size: 20px;
 }
 a:hover {
-  color: rgb(240, 96, 180);
+  color: rgb(181, 238, 228);
   cursor: pointer;
   font-size: 24px;
 }
 
 .menu {
   font-size: 30px;
+  color: white;
 }
 .menu:hover {
-  color: rgb(240, 96, 180);
+  color: rgb(181, 238, 228);
   cursor: pointer;
   font-size: 40px;
 }
