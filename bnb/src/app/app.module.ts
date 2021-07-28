@@ -9,6 +9,7 @@ import {MaterialModule} from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
+import { FeatureModule } from './feature/feature.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserModule } from './user/user.module';
     MaterialModule,
     SharedModule,
     CoreModule,
-    UserModule
+    UserModule,
+    FeatureModule
   ],
   providers: [],
   bootstrap: [AppComponent]

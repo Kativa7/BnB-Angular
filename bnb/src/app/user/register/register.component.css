@@ -2,6 +2,11 @@
 position: relative;
     width: 100%;
     height: 80vh;
+    background-image: url(../../../assets/secret-3120483_1920.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
 }
 
 .register-form{

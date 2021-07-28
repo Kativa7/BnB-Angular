@@ -1,1 +1,80 @@
-<p>add-listing works!</p>
+<!-- <div class="container" >
+    <form action="#" class="register-form">
+      <h2 class="title">Become a host today</h2>
+      <h2 class="title">Tell us more about your listing</h2>
+      <div class="input-field">
+        <span class="material-icons">
+            title
+            </span>
+        <input type="text" name="title" placeholder="Title" autocomplete="off" />
+      </div>
+      <div class="input-field">
+        <span class="material-icons">
+            location_on
+            </span>
+        <input type="text" name="city" placeholder="City" autocomplete="off" />
+      </div>
+      <div class="input-field">
+        <span class="material-icons">
+            location_city
+            </span>
+        <input type="text" name="type" placeholder="Type of Accomodation" autocomplete="off"/>
+      </div>
+      <div class="input-field">
+        <span class="material-icons">
+            euro
+            </span>
+        <input type="text" name="price" placeholder="Price per Night" autocomplete="off"/>
+      </div>
+      <div class="input-field">
+        <span class="material-icons">
+            photo_camera
+            </span>
+        <input type="text" name="imgUrl" placeholder="Add an Image URL" autocomplete="off"/>
+      </div>
+      <div class="input-field">
+        <span class="material-icons">
+            edit
+            </span>
+        <textarea name="imgUrl" placeholder="Add an Image URL" rows="4" cols="50"></textarea>
+      </div>
+      <input type="submit" name="submit" value="Create" class="btn">
+    </form>
+  </div>
+   -->
+<div class="container">
+  <h2 class="title" style="font-size: 30px;">Become a host today</h2>
+  <h6 class="title" style="font-size: 20px;">Tell us more about your listing</h6>
+  <div class="register-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput type="text"/>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Location</mat-label>
+      <input matInput type="text"/>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Image</mat-label>
+      <input matInput type="url" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Price per night</mat-label>
+      <input matInput type="number" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select>
+        <mat-option value="one">House</mat-option>
+        <mat-option value="two">Apartment</mat-option>
+        <mat-option value="three">Room</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+    <input type="submit" name="submit" value="Create" class="btn">
+  </div>
+</div>
