@@ -13,6 +13,7 @@ async function start(){
     await databaseConfig(app);
     app.use(cors());
     app.use(express.json());
+    
     app.use('/data/catalog', catalogController )
     
     app.get('/', (req,res) => res.send('Heyyy'));
