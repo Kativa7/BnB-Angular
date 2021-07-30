@@ -15,4 +15,8 @@ export class CatalogService {
   getAll(): Observable<Array<Listing>>{
    return this.http.get<Array<Listing>>(URL);
   }
+
+  getListingById(id: string):Observable<Listing>{
+    return this.http.get<Listing>(URL + `/${id}`);
+  }
 }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/home/home.component';
 import { AddListingComponent } from './feature/add-listing/add-listing.component';
 import { CatalogComponent } from './feature/catalog/catalog.component';
+import { ListingDetailsComponent } from './feature/listing-details/listing-details.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
     children: [
       { path: '', pathMatch: 'full', component: CatalogComponent },
       { path: 'add', component: AddListingComponent },
+      { path: ':id', component: ListingDetailsComponent },
   
   ],
   },

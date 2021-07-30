@@ -1,5 +1,5 @@
 interface Listing{
-id: number,
+_id: number,
 title: string,
 location: string,
 img: string,

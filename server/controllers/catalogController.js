@@ -1,16 +1,29 @@
 const router = require("express").Router();
-const { getAll } = require("../services/listing");
+const { getAll, getById, create } = require("../services/listing");
 
 router.get("/", async (req, res) => {
   const data = await getAll();
-  console.log(req.body)
   res.json(data);
 });
 
 router.post("/", async (req, res) => {
-  console.log(req.body);
-  res.status(201).json(req.body);
-  res.end()
-});
+  const data = {
+    title: req.body.title,
+    location: req.body.location,
+    img: req.body.img,
+    price: req.body.price,
+    category: req.body.category,
+    description: req.body.description
+  }
+
+  const result = await create(data);
+  res.status(201).json(result);
+  });
+
+
+router.get('/:id', async(req, res) => {
+  const item = await getById(req.params.id);
+  res.json(item);
+})
 
 module.exports = router;

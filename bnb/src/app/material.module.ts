@@ -7,7 +7,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-
+import {MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -21,7 +22,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    MatPaginatorModule
   ],
   exports: [
     MatToolbarModule,
@@ -31,7 +34,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    MatPaginatorModule
   ],
   providers: [ ],
 })

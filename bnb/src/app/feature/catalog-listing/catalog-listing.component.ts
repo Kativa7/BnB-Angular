@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import Listing from 'src/app/models/Listing';
 
 @Component({
   selector: 'app-catalog-listing',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./catalog-listing.component.css']
 })
 export class CatalogListingComponent implements OnInit {
-
+@Input()
+listing!: Listing;
   constructor() { }
 
   ngOnInit(): void {

@@ -7,6 +7,8 @@ import { CatalogListingComponent } from './catalog-listing/catalog-listing.compo
 import { CatalogService } from './services/catalog.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, NgForm } from '@angular/forms';
+import { ListingDetailsComponent } from './listing-details/listing-details.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,13 +16,15 @@ import { FormsModule, NgForm } from '@angular/forms';
   declarations: [
     CatalogComponent,
     AddListingComponent,
-    CatalogListingComponent
+    CatalogListingComponent,
+    ListingDetailsComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   providers: [CatalogService]
 })

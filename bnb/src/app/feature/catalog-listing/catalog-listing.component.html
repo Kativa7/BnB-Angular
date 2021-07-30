@@ -1,1 +1,11 @@
-<p>catalog-listing works!</p>
+<mat-card class="card">
+    <mat-card-header class="info">
+      <mat-card-title class="text">{{listing.title}}</mat-card-title>
+      <mat-card-subtitle class="text"> {{listing.location}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{listing.img}}" alt="listing photo">
+    <mat-card-actions class="info">
+      <button mat-button  class="text" routerLink="/catalog/{{listing._id}}" >View Details</button>
+      <button mat-button  class="text">Share</button>
+    </mat-card-actions>
+  </mat-card>
