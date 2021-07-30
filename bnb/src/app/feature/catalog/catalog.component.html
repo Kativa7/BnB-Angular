@@ -1,19 +1,30 @@
-<h2 class="title" style="font-size: 30px">Find a great place to stay on your next trip</h2>
+<h2 class="title" style="font-size: 30px">
+  Find a great place to stay on your next trip
+</h2>
 <h6 class="title" style="font-size: 20px">Let's get started.</h6>
 <div class="container">
-    <p>Search for accomodation using the form below:</p>
-    <form>
-      <input class="search-input" type="text" placeholder="Enter key words here">
-      <button class="btn" type="submit">Search</button>
-    </form>
-  </div>
+  <p>Search for accomodation using the form below:</p>
+  <form #form="ngForm" (ngSubmit)="search()">
+    <input
+      class="search-input"
+      name="search"
+      type="text"
+      placeholder="Enter key words here"
+      required
+      ngModel
+    />
+    <button class="btn" type="submit" [disabled]="form.invalid">Search</button>
+  </form>
+</div>
 <div class="wrapper">
   <div class="" *ngFor="let listing of allListings">
     <app-catalog-listing [listing]="listing"></app-catalog-listing>
   </div>
 </div>
-<mat-paginator [length]="100"
-              [pageSize]="10"
-              [pageSizeOptions]="[5, 10, 25, 100]"
-              aria-label="Select page">
+<mat-paginator
+  [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  aria-label="Select page"
+>
 </mat-paginator>

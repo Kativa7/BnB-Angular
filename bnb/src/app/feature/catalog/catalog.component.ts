@@ -16,5 +16,8 @@ export class CatalogComponent implements OnInit {
       this.allListings = data;
     })
   }
+  search(){
+    
+  }
 
 }

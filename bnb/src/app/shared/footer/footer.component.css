@@ -9,7 +9,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position:sticky;
+    position:fixed;
     bottom:0;
     width: 80%;
   }

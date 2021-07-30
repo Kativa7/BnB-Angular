@@ -19,4 +19,8 @@ export class CatalogService {
   getListingById(id: string):Observable<Listing>{
     return this.http.get<Listing>(URL + `/${id}`);
   }
+
+  searchListing(query: string){
+    return this.http.get<Array<Listing>>(URL+`&query=${query}`)
+  }
 }

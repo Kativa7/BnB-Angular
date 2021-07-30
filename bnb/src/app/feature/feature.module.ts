@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ListingDetailsComponent } from './listing-details/listing-details.component';
 import { RouterModule } from '@angular/router';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
     CatalogComponent,
     AddListingComponent,
     CatalogListingComponent,
-    ListingDetailsComponent
+    ListingDetailsComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
