@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import Listing from 'src/app/models/Listing';
 import { CatalogService } from '../services/catalog.service';
 

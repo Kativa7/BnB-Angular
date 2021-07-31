@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { MaterialModule } from '../material.module';
 
 
 
@@ -12,6 +13,7 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     CommonModule,
+    MaterialModule
   ]
 })
 export class UserModule { }

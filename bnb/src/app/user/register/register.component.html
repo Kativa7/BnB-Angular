@@ -3,20 +3,32 @@
     <h2 class="title">Sign Up Today</h2>
     <div class="input-field">
       <span class="material-icons"> person </span>
-      <input type="text" name="username" placeholder="Username" autocomplete="off" />
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput name="username" required ngModel />
+      </mat-form-field>
     </div>
     <div class="input-field">
-      <span class="material-icons"> email </span
-      ><input type="text" name="email" placeholder="Email" autocomplete="off"/>
+      <span class="material-icons"> email </span>
+      <mat-form-field  appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput name="email" required ngModel />
+      </mat-form-field>
     </div>
     <div class="input-field">
-      <span class="material-icons"> password </span
-      ><input type="password" name="password" placeholder="Password" autocomplete="off"/>
+      <span class="material-icons"> password </span>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput name="password" required ngModel />
+      </mat-form-field>
     </div>
     <div class="input-field">
       <span class="material-icons"> check </span>
-      <input type="password" name="rePass" placeholder="Confirm Password" autocomplete="off"/>
+      <mat-form-field appearance="fill">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput name="rePass" required ngModel />
+      </mat-form-field>
     </div>
-    <input type="submit" name="submit" value="Register" class="btn">
+    <input type="submit" name="submit" value="Register" class="btn" />
   </form>
 </div>

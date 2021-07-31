@@ -4,6 +4,7 @@ import { HomeComponent } from './core/home/home.component';
 import { AddListingComponent } from './feature/add-listing/add-listing.component';
 import { CatalogComponent } from './feature/catalog/catalog.component';
 import { ListingDetailsComponent } from './feature/listing-details/listing-details.component';
+import { SearchComponent } from './feature/search/search.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: '', pathMatch: 'full', component: CatalogComponent },
       { path: 'add', component: AddListingComponent },
       { path: ':id', component: ListingDetailsComponent },
+      { path: 'search', component: SearchComponent }
   
   ],
   },
