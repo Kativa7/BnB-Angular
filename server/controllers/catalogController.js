@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { isUser } = require("../middlewares/guards");
 const { getAll, getById, create } = require("../services/listing");
 
 router.get("/", async (req, res) => {
@@ -6,14 +7,15 @@ router.get("/", async (req, res) => {
   res.json(data);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", isUser(), async (req, res) => {
   const data = {
     title: req.body.title,
     location: req.body.location,
     img: req.body.img,
     price: req.body.price,
     category: req.body.category,
-    description: req.body.description
+    description: req.body.description,
+    owner: req.user._id
   }
 
   const result = await create(data);
