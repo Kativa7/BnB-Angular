@@ -21,6 +21,6 @@ export class CatalogService {
   }
 
   searchListing(query: string){
-    return this.http.get<Array<Listing>>(URL+`&query=${query}`)
+    return this.http.get<Array<Listing>>(URL+ `?search=${query}`)
   }
 }

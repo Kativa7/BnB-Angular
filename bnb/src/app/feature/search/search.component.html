@@ -1,1 +1,7 @@
-<p>search works!</p>
+<ng-template [ngIf]='searchedListings'>
+    <div class="wrapper">
+        <div class="" *ngFor="let listing of searchedListings">
+          <app-catalog-listing [listing]="listing"></app-catalog-listing>
+        </div>
+      </div>
+</ng-template>
