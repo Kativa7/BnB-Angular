@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/home/home.component';
+import { NotFoundComponent } from './core/not-found/not-found.component';
 import { AddListingComponent } from './feature/add-listing/add-listing.component';
 import { CatalogComponent } from './feature/catalog/catalog.component';
 import { ListingDetailsComponent } from './feature/listing-details/listing-details.component';
@@ -23,6 +24,8 @@ const routes: Routes = [
   
   ],
   },
+  { path: '**', component: NotFoundComponent },
+
 ];
 
 @NgModule({

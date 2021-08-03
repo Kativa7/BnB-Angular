@@ -9,7 +9,7 @@ async function register(username, email, password) {
     throw new Error("User with this email already exists!");
   }
 
-  const hashedPassord = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcrypt.hash(password, 10);
   const user = new User({ username, email, hashedPassword });
   await user.save();
 
@@ -27,7 +27,7 @@ async function login(email, password) {
       throw new Error("Incorrect name or password!");
     }
   
-    const match = await bcrypt.compare(password, user.hashedPassord);
+    const match = await bcrypt.compare(password, user.hashedPassword);
 
     if(!match){
       throw new Error("Incorrect name or password!");

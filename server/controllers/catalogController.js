@@ -12,14 +12,14 @@ router.get("/", async (req, res) => {
   res.json(data);
 });
 
-router.get("/search", async (req, res) => {
-  const options = {}
-  if (req.query.search) {
-    options = { $regex: req.query.search, $options: 'i' };
-}
-  const data = await Listing.find(options).lean();
-  res.json(data);
-});
+// router.get("/search", async (req, res) => {
+//   const options = {}
+//   if (req.query.search) {
+//     options = { $regex: req.query.search, $options: 'i' };
+// }
+//   const data = await Listing.find(options).lean();
+//   res.json(data);
+// });
 
 router.post("/", isUser(), async (req, res) => {
   const data = {

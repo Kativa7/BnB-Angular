@@ -1,11 +1,11 @@
 .card {
   width: 320px;
   height: 360px;
- padding: 2rem 1rem;
- background: #fff;
- position: relative;
-border-radius: 20px;
-
+  padding: 2rem 1rem;
+  background: #fff;
+  position: relative;
+  border-radius: 20px;
+  margin: 0 1rem;
 }
 /* .card:hover{
     transform: translateY(20px);
@@ -49,13 +49,12 @@ border-radius: 20px;
     transition: 1s all;
     opacity: 0;
 } */
-.card:hover{
-    transform: translateX(20px);
+.card:hover {
+  transform: translateX(20px);
 }
 /* .card:hover::before{
     opacity: 1;
 } */
-.card img{
-   max-height: 50%;
-   
+.card img {
+  max-height: 50%;
 }

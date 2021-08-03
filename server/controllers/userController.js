@@ -18,7 +18,7 @@ router.post("/register", async (req, res) => {
       email.toLocaleLowerCase().trim(),
       password.trim()
     );
-    res.json(userData);
+    res.status(200).json(userData);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -29,7 +29,7 @@ router.post("/login", async (req, res) => {
 
   try {
     const userData = await login(email, password);
-    res.json(userData);
+    res.status(200).json(userData);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

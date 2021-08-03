@@ -1,34 +1,88 @@
 <div class="container">
-  <form action="#" class="register-form">
+  <form class="register-form" #regForm="ngForm" (submit)="register(regForm)">
     <h2 class="title">Sign Up Today</h2>
     <div class="input-field">
       <span class="material-icons"> person </span>
       <mat-form-field appearance="fill">
         <mat-label>Username</mat-label>
-        <input matInput name="username" required ngModel />
+        <input matInput name="username" required minlength="3" ngModel />
+        <mat-error *ngIf="regForm?.controls?.username?.errors?.required"
+          >Username is required!</mat-error
+        >
+        <mat-error *ngIf="regForm?.controls?.username?.errors?.minlength"
+          >Username must be at least 3 characters!</mat-error
+        >
       </mat-form-field>
     </div>
     <div class="input-field">
       <span class="material-icons"> email </span>
-      <mat-form-field  appearance="fill">
+      <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput name="email" required ngModel />
+        <input
+          matInput
+          name="email"
+          required
+          pattern="(.+)@(.+){2,}\.(.+){2,}"
+          ngModel
+        />
+        <mat-error *ngIf="regForm?.controls?.email?.errors?.required"
+          >Email is required!</mat-error
+        >
+        <mat-error *ngIf="regForm?.controls?.email?.errors?.pattern"
+          >Invalid email format!</mat-error
+        >
       </mat-form-field>
     </div>
+
     <div class="input-field">
       <span class="material-icons"> password </span>
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput name="password" required ngModel />
+        <input
+          matInput
+          name="password"
+          #pass="ngModel"
+          required
+          pattern="^(?=.*[a-zA-Z])(?=\w*[0-9])\w{4,10}$"
+          ngModel
+        />
+        <mat-error *ngIf="pass?.errors?.required"
+          >Password is required!</mat-error
+        >
+
+        <mat-error *ngIf="pass?.errors?.pattern"
+          >Password must be between 4 and 10 chars and contain both letters and
+          digits!</mat-error
+        >
       </mat-form-field>
     </div>
     <div class="input-field">
       <span class="material-icons"> check </span>
       <mat-form-field appearance="fill">
         <mat-label>Confirm Password</mat-label>
-        <input matInput name="rePass" required ngModel />
+        <input
+          matInput
+          name="rePass"
+          required
+          pattern="{{ pass.value }}"
+          ngModel
+        />
+        <mat-error *ngIf="regForm?.controls?.rePass?.errors?.required"
+          >Please confirm password!</mat-error
+        >
+
+        <mat-error *ngIf="regForm?.controls?.rePass?.errors?.pattern"
+          >Passwords don't match!</mat-error
+        >
       </mat-form-field>
     </div>
-    <input type="submit" name="submit" value="Register" class="btn" />
+
+    <input
+      type="submit"
+      name="submit"
+      value="Register"
+      class="btn"
+      [disabled]="regForm.invalid"
+    />
   </form>
 </div>

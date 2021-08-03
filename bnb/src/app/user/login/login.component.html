@@ -1,21 +1,25 @@
 <div class="container">
-    <form action="#" class="login-form">
-      <h2 class="title">Sign In</h2>
-      <div class="input-field">
-        <span class="material-icons"> email </span>
-        <mat-form-field  appearance="fill">
-          <mat-label>Email</mat-label>
-          <input matInput name="email" required ngModel />
-        </mat-form-field>
-      </div>
-      <div class="input-field">
-        <span class="material-icons"> password </span>
-        <mat-form-field appearance="fill">
-          <mat-label>Password</mat-label>
-          <input matInput name="password" required ngModel />
-        </mat-form-field>
-      </div>
-    
-      <input type="submit" name="submit" value="Login" class="btn">
-    </form>
-  </div>
+  <form class="login-form"  #logForm="ngForm" (ngSubmit)="login(logForm)">
+    <h2 class="title">Sign In</h2>
+    <div class="input-field">
+      <span class="material-icons"> email </span>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput name="email" #email="ngModel" required email ngModel />
+        <mat-error *ngIf="email.errors?.required">Email is required!</mat-error>
+        <mat-error *ngIf="email.errors?.email">Invalid email format!</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-field">
+      <span class="material-icons"> password </span>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput name="password" #password="ngModel" required ngModel />
+        <mat-error>Password is required!</mat-error>
+
+      </mat-form-field>
+    </div>
+
+    <input type="submit" name="submit" value="Login" class="btn"  [disabled]="logForm.invalid" />
+  </form>
+</div>

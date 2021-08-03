@@ -5,7 +5,7 @@ const schema = new Schema({
   location: { type: String, required: [true, 'Location is required'] },
   img: { type: String, required: [true, 'Image is required'] },
   price: { type: Number, required: [true, 'Price is required'] },
-  category: { type: String, required:[true, 'Category is required'],  enum: ['House', 'Apartment', 'Room'] },
+  category: { type: String, required:[true, 'Category is required'],  enum: ['House', 'Apartment', 'Room', 'Other'] },
   description: { type: String },
   owner: { type: Schema.Types.ObjectId, ref: "User" },
 });

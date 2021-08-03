@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="title" style="font-size: 30px">Become a host today</h2>
   <h6 class="title" style="font-size: 20px">Tell us more about your listing</h6>
-  <form class="register-form"  #form="ngForm">
+  <form class="register-form"  [formGroup]="form" (ngSubmit)="add()">
     <pre>{{form.value |json}}</pre>
     <mat-form-field appearance="fill">
       <mat-label>Title</mat-label>
@@ -9,9 +9,8 @@
         matInput
         type="text"
         name="title"
-        required
-        ngModel
-       
+        formControlName="title"
+              
       />
       <mat-error>Title is required!</mat-error>
    
@@ -22,14 +21,13 @@
         matInput
         type="text"
         name="location"
-        required
-        ngModel
+        formControlName="location"
       />
       <mat-error>Location is required!</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Image</mat-label>
-      <input matInput type="url" name="url"  required ngModel />
+      <input matInput type="url" name="url"  formControlName="img" />
       <mat-error>Image URL is required!</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
@@ -38,24 +36,24 @@
         matInput
         type="number"
         name="price"
-        required
-        ngModel
+        formControlName="price"
       />
       <mat-error>Price is required!</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Category</mat-label>
-      <mat-select name="category" required  ngModel>
+      <mat-select name="category" formControlName="category">
         <mat-option value="house">House</mat-option>
         <mat-option value="apartment">Apartment</mat-option>
         <mat-option value="room">Room</mat-option>
+        <mat-option value="room">Other</mat-option>
       </mat-select>
       <mat-error>Category is required!</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Description</mat-label>
-      <textarea matInput name="description" ngModel></textarea>
+      <textarea matInput name="description" formControlName="description" ></textarea>
     </mat-form-field>
     <input type="submit" name="submit" value="Create" class="btn" />
   </form>

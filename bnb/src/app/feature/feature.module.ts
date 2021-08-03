@@ -5,11 +5,12 @@ import { AddListingComponent } from './add-listing/add-listing.component';
 import { MaterialModule } from '../material.module';
 import { CatalogListingComponent } from './catalog-listing/catalog-listing.component';
 import { CatalogService } from './services/catalog.service';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListingDetailsComponent } from './listing-details/listing-details.component';
 import { RouterModule } from '@angular/router';
 import { SearchComponent } from './search/search.component';
+import { FilterPipe } from './filter.pipe';
+
 
 
 
@@ -19,14 +20,15 @@ import { SearchComponent } from './search/search.component';
     AddListingComponent,
     CatalogListingComponent,
     ListingDetailsComponent,
-    SearchComponent
+    SearchComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    HttpClientModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [CatalogService]
 })
