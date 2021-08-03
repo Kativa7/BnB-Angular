@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CatalogService } from '../services/catalog.service';
 
 @Component({
   selector: 'app-add-listing',
@@ -8,7 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddListingComponent  {
   form: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private catalogService: CatalogService, private router: Router) {
+    
     this.form = this.fb.group({
 title: ['', [Validators.required]],
 location: ['', [Validators.required]],
@@ -20,6 +23,14 @@ description: ['',],
   }
 
 add(){
-console.log(this.form.value)
+  const {title, location, img, price, category, description} = this.form.value;
+  this.catalogService.addListing({title, location, img, price, category, description}).subscribe({
+    next: () => {
+      this.router.navigate(['/catalog'])
+    },
+    error: (err) => {
+      console.error(err)
+    }
+  });
 }  
 }

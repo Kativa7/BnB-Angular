@@ -24,6 +24,13 @@
   align-items: center;
   color: rgb(81, 138, 127);
 }
+
+.spinner{
+  margin: auto;
+  min-height: 80vh;
+  color: rgb(81, 138, 127);
+}
+
 .search-input {
   font-size: 30px;
   

@@ -2,6 +2,8 @@
   Find a great place to stay on your next trip
 </h2>
 <h6 class="title" style="font-size: 20px">Let's get started.</h6>
+
+
 <div class="container">
   <p>Search for accomodation using the form below:</p>
   <form #form="ngForm">
@@ -16,11 +18,16 @@
     <button class="btn" type="submit" [disabled]="form.invalid">Search</button>
   </form>
 </div>
-<div class="wrapper">
+
+
+<div class="wrapper" *ngIf="allListings">
   <div class="" *ngFor="let listing of allListings">
     <app-catalog-listing [listing]="listing"></app-catalog-listing>
   </div>
 </div>
+<mat-spinner class="spinner" *ngIf="!allListings"></mat-spinner>
+
+
 <mat-paginator
   [length]="100"
   [pageSize]="10"

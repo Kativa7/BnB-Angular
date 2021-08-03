@@ -20,6 +20,10 @@ export class CatalogService {
     return this.http.get<Listing>(URL + `/${id}`);
   }
 
+  addListing(data: {title: string; location: string; img: string; price: number; category: string; description: string;}){
+    return this.http.post<Listing>(URL, data, { withCredentials: false});
+  }
+
   searchListing(query: string){
     return this.http.get<Array<Listing>>(URL+ `?search=${query}`)
   }
