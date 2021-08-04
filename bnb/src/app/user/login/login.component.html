@@ -1,5 +1,6 @@
+<div *ngIf="logginFailed">{{error}}</div>
 <div class="container">
-  <form class="login-form"  #logForm="ngForm" (ngSubmit)="login(logForm)">
+  <form class="login-form" #logForm="ngForm" (ngSubmit)="login(logForm)">
     <h2 class="title">Sign In</h2>
     <div class="input-field">
       <span class="material-icons"> email </span>
@@ -14,12 +15,24 @@
       <span class="material-icons"> password </span>
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput name="password" #password="ngModel" required ngModel />
+        <input
+          matInput
+          name="password"
+          #password="ngModel"
+          type="password"
+          required
+          ngModel
+        />
         <mat-error>Password is required!</mat-error>
-
       </mat-form-field>
     </div>
 
-    <input type="submit" name="submit" value="Login" class="btn"  [disabled]="logForm.invalid" />
+    <input
+      type="submit"
+      name="submit"
+      value="Login"
+      class="btn"
+      [disabled]="logForm.invalid"
+    />
   </form>
 </div>

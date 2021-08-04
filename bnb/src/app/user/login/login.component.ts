@@ -8,15 +8,14 @@ import { UserService } from '../user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-
+export class LoginComponent {
+logginFailed!: boolean;
+error: string | undefined;
   constructor(
     private router: Router,
     private userService: UserService
   ) { }
 
-  ngOnInit(): void {
-  }
 login(form: NgForm){
 const {email, password} = form.value;
 this.userService.login({email, password}).subscribe({
@@ -25,7 +24,9 @@ this.userService.login({email, password}).subscribe({
 
   },
   error: (err) => {
-    console.error(err)
+   this.logginFailed = true;
+   this.error = (err.error.message);
+   console.log(err.error.message)
   }
 });
 }
