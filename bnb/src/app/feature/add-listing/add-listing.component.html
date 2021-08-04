@@ -1,49 +1,34 @@
 <div class="container">
   <h2 class="title" style="font-size: 30px">Become a host today</h2>
   <h6 class="title" style="font-size: 20px">Tell us more about your listing</h6>
-  <form class="register-form"  [formGroup]="form" (ngSubmit)="add()">
+  <form class="register-form" [formGroup]="form" (ngSubmit)="add()">
     <!-- <pre>{{form.value |json}}</pre> -->
     <mat-form-field appearance="fill">
       <mat-label>Title</mat-label>
-      <input
-        matInput
-        type="text"
-        name="title"
-        formControlName="title"
-              
-      />
+      <input matInput type="text" formControlName="title" />
       <mat-error>Title is required!</mat-error>
-   
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Location</mat-label>
-      <input
-        matInput
-        type="text"
-        name="location"
-        formControlName="location"
-      />
+      <input matInput type="text" formControlName="location" />
       <mat-error>Location is required!</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Image</mat-label>
-      <input matInput type="url" name="url"  formControlName="img" />
-      <mat-error>Image URL is required!</mat-error>
+      <input matInput type="url" name="url" formControlName="img" />
+      <mat-error *ngIf="form.controls.img.errors?.required">Image URL is required!</mat-error>
+      <mat-error *ngIf="form.controls.img.errors?.pattern">Invalid URL pattern!</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Price per night</mat-label>
-      <input
-        matInput
-        type="number"
-        name="price"
-        formControlName="price"
-      />
-      <mat-error>Price is required!</mat-error>
+      <input matInput type="number" formControlName="price" />
+      <mat-error *ngIf="form.controls.price.errors?.required">Price is required!</mat-error>
+      <mat-error *ngIf="form.controls.price.errors?.min">Price must be a positive number!</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Category</mat-label>
-      <mat-select name="category" formControlName="category">
+      <mat-select formControlName="category">
         <mat-option value="house">House</mat-option>
         <mat-option value="apartment">Apartment</mat-option>
         <mat-option value="room">Room</mat-option>
@@ -53,7 +38,8 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Description</mat-label>
-      <textarea matInput name="description" formControlName="description" ></textarea>
+      <textarea matInput formControlName="description"></textarea>
+      <mat-error>Description must be less than 200 symbols!</mat-error>
     </mat-form-field>
     <input type="submit" name="submit" value="Create" class="btn" />
   </form>
