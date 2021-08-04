@@ -16,14 +16,14 @@
     <mat-form-field appearance="fill">
       <mat-label>Image</mat-label>
       <input matInput type="url" name="url" formControlName="img" />
-      <mat-error *ngIf="form.controls.img.errors?.required">Image URL is required!</mat-error>
-      <mat-error *ngIf="form.controls.img.errors?.pattern">Invalid URL pattern!</mat-error>
+      <mat-error *ngIf="form.get('img')?.errors?.required">Image URL is required!</mat-error>
+      <mat-error *ngIf="form.get('img')?.errors?.pattern">Invalid URL pattern!</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Price per night</mat-label>
       <input matInput type="number" formControlName="price" />
-      <mat-error *ngIf="form.controls.price.errors?.required">Price is required!</mat-error>
-      <mat-error *ngIf="form.controls.price.errors?.min">Price must be a positive number!</mat-error>
+      <mat-error *ngIf="form.get('price')?.errors?.required">Price is required!</mat-error>
+      <mat-error *ngIf="form.get('price')?.errors?.min">Price must be a positive number!</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import Listing from 'src/app/models/Listing';
+import Listing from 'src/app/feature/models/Listing';
 
 @Component({
   selector: 'app-catalog-listing',

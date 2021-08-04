@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import Listing from 'src/app/models/Listing';
+import Listing from 'src/app/feature/models/Listing';
+import ListingDetails from '../models/Listing-details';
 
 const URL = 'http://localhost:5000/data/catalog'
 
@@ -17,11 +18,11 @@ export class CatalogService {
   }
 
   getListingById(id: string):Observable<Listing>{
-    return this.http.get<Listing>(URL + `/${id}`);
+    return this.http.get<ListingDetails>(URL + `/${id}`);
   }
 
   addListing(data: {title: string; location: string; img: string; price: number; category: string; description: string;}){
-    return this.http.post<Listing>(URL, data, { withCredentials: false});
+    return this.http.post<ListingDetails>(URL, data, { withCredentials: false});
   }
 
   searchListing(query: string){

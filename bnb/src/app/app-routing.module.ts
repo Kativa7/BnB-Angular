@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/home/home.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
-import { AddListingComponent } from './feature/add-listing/add-listing.component';
-import { CatalogComponent } from './feature/catalog/catalog.component';
-import { ListingDetailsComponent } from './feature/listing-details/listing-details.component';
+import { AddListingComponent } from './feature/components/add-listing/add-listing.component';
+import { CatalogComponent } from './feature/components/catalog/catalog.component';
+import { ListingDetailsComponent } from './feature/components/listing-details/listing-details.component';
 import { SearchComponent } from './feature/search/search.component';
-import { LoginComponent } from './user/login/login.component';
-import { RegisterComponent } from './user/register/register.component';
+import { LoginComponent } from './user/components/login/login.component';
+import { RegisterComponent } from './user/components/register/register.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: HomeComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
