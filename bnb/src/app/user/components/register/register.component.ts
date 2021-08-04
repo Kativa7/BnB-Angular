@@ -15,7 +15,7 @@ export class RegisterComponent {
   register(form: NgForm): void {
     const {username, email, password} = form.value;
     this.userService.register({username, email, password}).subscribe({
-      next: () => {
+      next:  () => {
         this.router.navigate(['/catalog'])
 
       },

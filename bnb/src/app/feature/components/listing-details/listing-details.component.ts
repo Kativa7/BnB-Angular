@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
-import Listing from 'src/app/feature/models/Listing';
+import ListingDetails from '../../models/Listing-details';
 import { CatalogService } from '../../services/catalog.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { CatalogService } from '../../services/catalog.service';
 })
 export class ListingDetailsComponent implements OnInit {
   id!: string;
-  listing!: Listing;
+  listing!: ListingDetails;
   constructor(
     private catalogService: CatalogService,
     private route: ActivatedRoute

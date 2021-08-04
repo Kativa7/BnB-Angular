@@ -19,4 +19,5 @@ export class UserService {
   register(data: { username: string; email: string; password: string }) {
     return this.http.post<UserRegister>(URL + '/register', data, { withCredentials: false});
   }
+
 }
