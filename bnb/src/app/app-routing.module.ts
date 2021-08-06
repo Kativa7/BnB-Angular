@@ -7,6 +7,7 @@ import { CatalogComponent } from './feature/components/catalog/catalog.component
 import { ListingDetailsComponent } from './feature/components/listing-details/listing-details.component';
 import { SearchComponent } from './feature/search/search.component';
 import { LoginComponent } from './user/components/login/login.component';
+import { ProfileComponent } from './user/components/profile/profile.component';
 import { RegisterComponent } from './user/components/register/register.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent },
   {
     path: 'catalog',
     children: [

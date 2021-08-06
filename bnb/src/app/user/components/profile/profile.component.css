@@ -1,0 +1,56 @@
+
+.profile {
+    width: 100%;
+    max-width: 800px;
+    margin: 2em auto 1rem;
+    padding: .5em;
+    border: .3em solid rgb(81, 138, 127);
+
+    border-radius: .5rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #444;
+    background-color: hsla(0, 0%, 94.1%, .8);
+    box-shadow: 0 0 1em 0 #000;
+    text-align: center;
+}
+.profile h3{
+    margin: 0 0 20px 20px;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-decoration: underline;
+}
+.profile p {
+    margin: 0 20px 0 20px;
+    line-height: 1.7em;
+    font-size: 15px;
+    font-weight: lighter;
+    text-align: justify;
+}
+
+
+.profile img {
+    width: 10em;
+    height: 10em;
+    margin: auto;
+    display: block;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex p:first-child {
+    width: 35%;
+    text-align: right;
+    margin: .5em;
+}
+
+.flex p:last-child {
+    width: 55%;
+    text-align: left;
+    margin: .5em;
+    font-weight: bold;
+}
+

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
-import ListingDetails from '../../models/Listing-details';
+import { ActivatedRoute, Router} from '@angular/router';
+import Listing from '../../models/Listing';
 import { CatalogService } from '../../services/catalog.service';
 
 @Component({
@@ -9,11 +9,12 @@ import { CatalogService } from '../../services/catalog.service';
   styleUrls: ['./listing-details.component.css'],
 })
 export class ListingDetailsComponent implements OnInit {
-  id!: string;
-  listing!: ListingDetails;
+  id!: number;
+  listing!: Listing;
   constructor(
     private catalogService: CatalogService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -22,5 +23,16 @@ export class ListingDetailsComponent implements OnInit {
     this.catalogService
       .getListingById(this.id)
       .subscribe((data) => (this.listing = data));
+  }
+
+  bookListing(id: number){
+    this.catalogService.bookAListing(id).subscribe({
+      next:  () => {
+        this.router.navigate(['/catalog'])
+      },
+      error: (err) => {
+        console.error(err)
+      }
+    });
   }
 }

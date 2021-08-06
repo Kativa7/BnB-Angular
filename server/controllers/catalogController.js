@@ -2,8 +2,11 @@ const router = require("express").Router();
 const { parseError } = require("../middlewares/util");
 const { isUser, isOwner } = require("../middlewares/guards");
 const preloader = require("../middlewares/preloader");
-const { remove } = require("../models/Listing");
-const { getAll, create, update } = require("../services/listing");
+const { getAll,
+  create,
+  update,
+  remove,
+  book} = require("../services/listing");
 const Listing = require("../models/Listing");
 
 router.get("/", async (req, res) => {
@@ -11,15 +14,6 @@ router.get("/", async (req, res) => {
 
   res.json(data);
 });
-
-// router.get("/search", async (req, res) => {
-//   const options = {}
-//   if (req.query.search) {
-//     options = { $regex: req.query.search, $options: 'i' };
-// }
-//   const data = await Listing.find(options).lean();
-//   res.json(data);
-// });
 
 router.post("/", isUser(), async (req, res) => {
   const data = {
@@ -36,7 +30,7 @@ router.post("/", isUser(), async (req, res) => {
 
     res.status(201).json(result);
   } catch (err) {
-    console.log(req.body)
+    console.log(req.body);
     const message = parseError(err);
 
     res.status(400).json({ message });
@@ -75,7 +69,17 @@ router.delete("/:id", isUser(), preloader(), isOwner(), async (req, res) => {
     await remove(req.params.id);
     res.status(204).end();
   } catch (err) {
-    console.log();
+    console.log(err);
+    res.status(400).json({ message: err.message });
+  }
+});
+
+router.get("/book/:id", isUser(), async (req, res) => {
+  try {
+    const result = await book(req.params.id, req.user._id);
+    res.status(200).json(result);
+  } catch (err) {
+    console.log(err.message);
     res.status(400).json({ message: err.message });
   }
 });

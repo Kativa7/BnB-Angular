@@ -4,7 +4,7 @@ const schema = new Schema({
   username: { type: String },
   email: { type: String },
   hashedPassword: { type: String },
-  booked: [{type: Schema.Types.ObjectId, ref: "Listing"}],
+  booked: [{type: Schema.Types.ObjectId, ref: "Listing", default: []}],
   offered: [{type: Schema.Types.ObjectId, ref: "Listing"}],
 });
 

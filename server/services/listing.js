@@ -1,4 +1,5 @@
 const Listing = require("../models/Listing");
+const User = require("../models/User");
 
 async function getAll() {
 
@@ -30,11 +31,17 @@ async function remove(id) {
   return await Listing.findByIdAndDelete(id);
 }
 
+async function book(listingId, userId){
+  const user = await User.findById(userId);
+  user.booked.push(listingId);
+  return user.save();
+}
+
 module.exports = {
   getAll,
   getById,
   create,
   update,
   remove,
-  
+  book
 };

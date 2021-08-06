@@ -4,13 +4,15 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { MaterialModule } from '../material.module';
 import { FormsModule } from '@angular/forms';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
 @NgModule({
   declarations: [
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

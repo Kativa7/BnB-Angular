@@ -17,7 +17,7 @@ async function register(username, email, password) {
       _id: user._id,
       username: user.username,
       email: user.email,
-      accessToken: generateToken(user)
+      accessToken: generateToken(user),
   };
 }
 
@@ -37,7 +37,8 @@ async function login(email, password) {
         _id: user._id,
         username: user.username,
         email: user.email,
-        accessToken: generateToken(user)
+        accessToken: generateToken(user),
+        booked: user.booked
     };
   }
   
@@ -47,6 +48,7 @@ function generateToken(user) {
       _id: user._id,
       username: user.username,
       email: user.email,
+      booked: user.booked
     },
     TOKEN_SECRET
   );

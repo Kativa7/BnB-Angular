@@ -1,5 +1,4 @@
-interface ListingDetails{
-    _id: number,
+interface CreateListing{
     title: string,
     location: string,
     img: string,
@@ -8,4 +7,4 @@ interface ListingDetails{
     description?: string
     }
     
-    export default ListingDetails;
+    export default CreateListing;
