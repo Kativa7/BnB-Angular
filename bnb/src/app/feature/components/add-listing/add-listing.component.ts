@@ -26,6 +26,7 @@ add(){
   const {title, location, img, price, category, description} = this.form.value;
   this.catalogService.addListing({title, location, img, price, category, description}).subscribe({
     next: () => {
+  
       this.router.navigate(['/catalog'])
     },
     error: (err) => {

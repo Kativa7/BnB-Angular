@@ -10,12 +10,17 @@ background-color: rgb(111, 117, 116);
 #logo {
   text-transform: uppercase;
   position: relative;
+  display: flex;
+  flex: 1;
+
+
 }
 
 .nav-links {
   display: flex;
   justify-content: space-around;
-  width: 35%;
+  width: 25%;
+
 }
 .nav-links li {
   list-style: none;

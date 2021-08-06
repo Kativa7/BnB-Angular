@@ -33,8 +33,10 @@ router.post("/", isUser(), async (req, res) => {
   };
   try {
     const result = await create(data);
+
     res.status(201).json(result);
   } catch (err) {
+    console.log(req.body)
     const message = parseError(err);
 
     res.status(400).json({ message });

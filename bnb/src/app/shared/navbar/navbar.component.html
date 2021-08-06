@@ -6,19 +6,20 @@
     </button>
     <div id="logo"><a routerLink="/" >Bed.And.Breakfast</a></div>
     <ul class="nav-links">
-      <li><a routerLink="/login"><span class="material-icons">
+      <li *ngIf="!userService.isLoggedIn()"><a routerLink="/login"><span class="material-icons">
         login
         </span>
         LogIn</a></li>
-      <li><a routerLink="/register"><span class="material-icons">
+      <li *ngIf="!userService.isLoggedIn()"><a routerLink="/register"><span class="material-icons">
         app_registration
         </span>
         Register Now</a></li>
-      <li><a routerLink="/profile"><span class="material-icons">
+      <li *ngIf="userService.isLoggedIn()" ><a routerLink="/profile"><span class="material-icons">
         account_circle
         </span>
-        View Profile</a></li>
-      <li><a routerLink="logout"><span class="material-icons">
+        Hi, view your profile</a></li>
+        
+      <li *ngIf="userService.isLoggedIn()" (click)="onLogout()"><a ><span class="material-icons">
         logout
         </span>
         Logout</a></li>

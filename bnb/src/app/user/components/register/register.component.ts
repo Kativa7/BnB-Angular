@@ -9,7 +9,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService,  private router: Router) {}
 
 
   register(form: NgForm): void {
@@ -17,7 +17,6 @@ export class RegisterComponent {
     this.userService.register({username, email, password}).subscribe({
       next:  () => {
         this.router.navigate(['/catalog'])
-
       },
       error: (err) => {
         console.error(err)

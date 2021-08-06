@@ -14,6 +14,7 @@ async function getById(id) {
 
 async function create(data) {
   const result = new Listing(data);
+ 
   await result.save();
 
   return result;

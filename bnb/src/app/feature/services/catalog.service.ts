@@ -22,7 +22,7 @@ export class CatalogService {
   }
 
   addListing(data: {title: string; location: string; img: string; price: number; category: string; description: string;}){
-    return this.http.post<ListingDetails>(URL, data, { withCredentials: false});
+    return this.http.post<ListingDetails>(URL, data);
   }
 
   searchListing(query: string){

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { UserService } from 'src/app/user/services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,11 +8,18 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   @Output() onToggleSideNav = new EventEmitter<void>();
-  constructor() {}
+  constructor(public userService: UserService) {
+  }
 
   ngOnInit(): void {}
 
   toggleSidenav() {
     this.onToggleSideNav.emit();
   }
+ onLogout(){
+   this.userService.logout();
+ }
+
+ 
+
 }

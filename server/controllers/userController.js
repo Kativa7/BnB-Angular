@@ -4,7 +4,6 @@ const { register, login } = require("../services/user");
 
 router.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
-  console.log(req.body);
 
   try {
     if (!username) {
