@@ -1,26 +1,24 @@
 mat-toolbar {
 background-color: rgb(111, 117, 116);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   min-height: 10vh;
+  padding-left: 10%;
+    padding-right: 10%;
  
 }
 
 #logo {
   text-transform: uppercase;
-  position: relative;
   display: flex;
   flex: 1;
-
-
 }
 
 .nav-links {
   display: flex;
   justify-content: space-around;
-  width: 25%;
-
+  width: 20%;
 }
 .nav-links li {
   list-style: none;

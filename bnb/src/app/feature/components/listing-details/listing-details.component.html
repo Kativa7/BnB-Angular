@@ -7,14 +7,14 @@
       <div class="product-text">
         <h1>{{ listing.title }}</h1>
         <h2>{{ listing.category }} located in {{ listing.location }} </h2>
-        <p>{{ listing.description }}</p>
+        <p>{{ listing.description === '' ? 'No descrition was provided.' : listing.description}}</p>
       </div>
       <div class="product-price-btn">
         <p>
           <span>{{ listing.price }}</span
           >$
         </p>
-        <button type="button">Book Now</button>
+        <button class="btn" type="button">Book Now</button>
       </div>
     </div>
   </div>
