@@ -1,6 +1,6 @@
 <div class="container">
     <h6 class="title" style="font-size: 20px">Tell us what needs changing</h6>
-    <form class="register-form" [formGroup]="form" (ngSubmit)="edit()">
+    <form class="register-form" *ngIf="form" [formGroup]="form" (ngSubmit)="edit()">
       <!-- <pre>{{form.value |json}}</pre> -->
       <mat-form-field appearance="fill">
         <mat-label>Title</mat-label>

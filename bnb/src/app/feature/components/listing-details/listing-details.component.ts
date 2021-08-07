@@ -16,7 +16,7 @@ export class ListingDetailsComponent implements OnInit {
   listings!: Array<Listing>
   constructor(
     private catalogService: CatalogService,
-    private userService: UserService,
+    public userService: UserService,
     private route: ActivatedRoute,
     private router: Router
   ) {
@@ -60,8 +60,6 @@ export class ListingDetailsComponent implements OnInit {
       }
     });
   }
-
-
 
   }
 

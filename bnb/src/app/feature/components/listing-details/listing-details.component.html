@@ -15,7 +15,8 @@
           >$
         </p>
        
-        <button *ngIf="user.id != listing.owner" class="btn" type="button" (click)="bookListing(listing._id)">Book Now</button>
+        <button *ngIf="user.id != listing.owner && !userService.hasBooked(listing._id)" class="btn" type="button" (click)="bookListing(listing._id)">Book Now</button>
+        <p *ngIf="userService.hasBooked(listing._id)">You have already booked!</p>
         <button *ngIf="user.id === listing.owner" class="btn owner" style="background-color: rgb(112, 230, 200);
         " type="button" routerLink="/catalog/edit/{{listing._id}}">Edit</button>
           <button *ngIf="user.id === listing.owner" class="btn " style="background-color: rgb(238, 73, 155);
