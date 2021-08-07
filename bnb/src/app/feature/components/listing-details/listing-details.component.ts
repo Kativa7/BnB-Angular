@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
+import { UserService } from 'src/app/user/services/user.service';
 import Listing from '../../models/Listing';
 import { CatalogService } from '../../services/catalog.service';
 
@@ -11,11 +12,17 @@ import { CatalogService } from '../../services/catalog.service';
 export class ListingDetailsComponent implements OnInit {
   id!: number;
   listing!: Listing;
+  user: any;
+  listings!: Array<Listing>
   constructor(
     private catalogService: CatalogService,
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {
+    this.user = this.userService.getUser();
+    this.user = JSON.parse(this.user);
+  }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -35,4 +42,27 @@ export class ListingDetailsComponent implements OnInit {
       }
     });
   }
-}
+
+  updateCatalog(){
+    this.catalogService.getAll().subscribe(data=>{
+      this.listings = data
+    })
+  }
+
+  deleteListing(id: number) {
+    this.catalogService.deleteListing(id).subscribe({
+      next:  () => {
+        this.updateCatalog();
+        this.router.navigate(['/catalog'])
+      },
+      error: (err) => {
+        console.error(err)
+      }
+    });
+  }
+
+
+
+  }
+
+

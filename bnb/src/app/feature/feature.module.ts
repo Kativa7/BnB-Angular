@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListingDetailsComponent } from './components/listing-details/listing-details.component';
 import { RouterModule } from '@angular/router';
 import { SearchComponent } from './search/search.component';
+import { EditListingComponent } from './components/edit-listing/edit-listing.component';
 
 
 
@@ -20,6 +21,7 @@ import { SearchComponent } from './search/search.component';
     CatalogListingComponent,
     ListingDetailsComponent,
     SearchComponent,
+    EditListingComponent,
   ],
   imports: [
     CommonModule,

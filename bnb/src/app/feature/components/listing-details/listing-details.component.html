@@ -14,7 +14,13 @@
           <span>{{ listing.price }}</span
           >$
         </p>
-        <button class="btn" type="button" (click)="bookListing(listing._id)">Book Now</button>
+       
+        <button *ngIf="user.id != listing.owner" class="btn" type="button" (click)="bookListing(listing._id)">Book Now</button>
+        <button *ngIf="user.id === listing.owner" class="btn owner" style="background-color: rgb(112, 230, 200);
+        " type="button" routerLink="/catalog/edit/{{listing._id}}">Edit</button>
+          <button *ngIf="user.id === listing.owner" class="btn " style="background-color: rgb(238, 73, 155);
+          " type="button" (click)="deleteListing(listing._id)">Delete</button>
+
       </div>
     </div>
   </div>

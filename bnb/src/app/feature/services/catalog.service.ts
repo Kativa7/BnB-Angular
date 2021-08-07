@@ -56,4 +56,5 @@ export class CatalogService {
   bookAListing(id: number) {
     return this.http.get(URL + `/book/${id}`);
   }
+
 }

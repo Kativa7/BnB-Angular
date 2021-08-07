@@ -25,6 +25,10 @@ export class UserService {
     localStorage.clear();
   }
 
+  getUser() {
+    return localStorage.getItem('currentUser')
+  }
+
   isLoggedIn(): boolean{
     let user = localStorage.getItem('currentUser');
     if(!user){
@@ -33,7 +37,5 @@ export class UserService {
 
     return true; 
   }
-
-  
 
 }

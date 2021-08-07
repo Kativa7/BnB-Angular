@@ -2,7 +2,6 @@ const Listing = require("../models/Listing");
 const User = require("../models/User");
 
 async function getAll() {
-
   const listings = Listing.find().lean();
 
   return listings;
@@ -13,9 +12,8 @@ async function getById(id) {
   return Listing.findById(id);
 }
 
-async function create(data) {
+async function create(data, userId) {
   const result = new Listing(data);
- 
   await result.save();
 
   return result;

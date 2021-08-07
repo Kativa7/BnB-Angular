@@ -2,11 +2,7 @@ const router = require("express").Router();
 const { parseError } = require("../middlewares/util");
 const { isUser, isOwner } = require("../middlewares/guards");
 const preloader = require("../middlewares/preloader");
-const { getAll,
-  create,
-  update,
-  remove,
-  book} = require("../services/listing");
+const { getAll, create, update, remove, book } = require("../services/listing");
 const Listing = require("../models/Listing");
 
 router.get("/", async (req, res) => {
@@ -26,7 +22,7 @@ router.post("/", isUser(), async (req, res) => {
     owner: req.user._id,
   };
   try {
-    const result = await create(data);
+    const result = await create(data, req.user._id);
 
     res.status(201).json(result);
   } catch (err) {
@@ -67,7 +63,11 @@ router.put("/:id", isUser(), preloader(), isOwner(), async (req, res) => {
 router.delete("/:id", isUser(), preloader(), isOwner(), async (req, res) => {
   try {
     await remove(req.params.id);
-    res.status(204).end();
+
+    res.status(204).json({
+      success: true,
+      message: 'Furniture deleted successfully!'
+    })
   } catch (err) {
     console.log(err);
     res.status(400).json({ message: err.message });
@@ -77,11 +77,13 @@ router.delete("/:id", isUser(), preloader(), isOwner(), async (req, res) => {
 router.get("/book/:id", isUser(), async (req, res) => {
   try {
     const result = await book(req.params.id, req.user._id);
+  console.log(result)
     res.status(200).json(result);
   } catch (err) {
     console.log(err.message);
     res.status(400).json({ message: err.message });
   }
 });
+
 
 module.exports = router;
