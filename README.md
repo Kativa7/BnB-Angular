@@ -1,6 +1,6 @@
 # BnB-Angular
 
-An Angular Project.
+An Angular Project. Angular Material used to help with UI (and some custom CSS).
 
 Idea - This is a small app that lets users browse through accomodation listings and book or add one themselves.
 
