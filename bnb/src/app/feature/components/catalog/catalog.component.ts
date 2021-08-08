@@ -1,9 +1,6 @@
 import { Component, OnInit, Query, ViewChild } from '@angular/core';
-import Listing from 'src/app/feature/models/Listing';
-import { CatalogService } from '../../services/catalog.service';
-
-
-
+import Listing from 'src/app/core/models/Listing';
+import { CatalogService } from '../../../core/services/catalog.service';
 
 @Component({
   selector: 'app-catalog',
@@ -13,13 +10,18 @@ import { CatalogService } from '../../services/catalog.service';
 export class CatalogComponent implements OnInit {
   listingName!: string;
   allListings: Array<Listing> | undefined;
-  constructor(private catalogService: CatalogService,
-   ) {}
+  pageSize: number = 5;
+  currentPage: number = 1;
+  constructor(private catalogService: CatalogService) {}
 
   ngOnInit() {
     this.catalogService.getAll().subscribe((data) => {
       this.allListings = data;
     });
   }
- 
+
+
+  changePage(page: any){
+    this.currentPage = page;
+  }
 }

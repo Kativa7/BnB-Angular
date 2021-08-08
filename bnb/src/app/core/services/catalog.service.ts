@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import Listing from 'src/app/feature/models/Listing';
+import Listing from 'src/app/core/models/Listing';
 import CreateListing from '../models/CreateListing';
 
 const URL = 'http://localhost:5000/data/catalog';

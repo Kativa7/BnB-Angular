@@ -77,7 +77,6 @@ router.delete("/:id", isUser(), preloader(), isOwner(), async (req, res) => {
 router.get("/book/:id", isUser(), async (req, res) => {
   try {
     const result = await book(req.params.id, req.user._id);
-  console.log(result)
     res.status(200).json(result);
   } catch (err) {
     console.log(err.message);

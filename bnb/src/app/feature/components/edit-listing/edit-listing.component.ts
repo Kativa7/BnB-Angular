@@ -1,8 +1,8 @@
 import { Component} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import Listing from '../../models/Listing';
-import { CatalogService } from '../../services/catalog.service';
+import Listing from '../../../core/models/Listing';
+import { CatalogService } from '../../../core/services/catalog.service';
 
 @Component({
   selector: 'app-edit-listing',

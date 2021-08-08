@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import User from 'src/app/models/User';
+import User from 'src/app/core/models/User';
 import UserLogin from '../models/User-login';
 import UserRegister from '../models/User-register';
 
@@ -44,7 +44,6 @@ export class UserService {
     this.user = localStorage.getItem('currentUser');
     this.user = JSON.parse(this.user);
     let match = this.user?.booked.filter((l: number) => l === listingId);
-    console.log(match)
    
    if(match?.length> 0){
      return true;

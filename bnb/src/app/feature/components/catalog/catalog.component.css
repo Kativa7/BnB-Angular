@@ -11,7 +11,7 @@
 }
 
 .wrapper {
-  min-height: 50vh;
+  min-height: 43vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,4 +44,15 @@
 
 .search-input:focus::placeholder{
 color: transparent;
+}
+
+
+pagination-controls{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  margin-top: 30px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }

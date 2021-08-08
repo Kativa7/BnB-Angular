@@ -21,7 +21,7 @@
 
 
 <div class="wrapper" *ngIf="allListings">
-  <div class="" *ngFor="let listing of allListings">
+  <div class="" *ngFor="let listing of allListings | paginate: {id: 'allListings', itemsPerPage: pageSize, currentPage: currentPage}">
     <app-catalog-listing [listing]="listing"></app-catalog-listing>
   </div>
 </div>
@@ -29,10 +29,15 @@
 <mat-spinner class="spinner" *ngIf="!allListings"></mat-spinner>
 
 
-<mat-paginator
-  [length]="100"
-  [pageSize]="5"
-  [pageSizeOptions]="[5]"
+<pagination-controls
+  id = "allListings"
+  (pageChange)="changePage($event)"
+   previousLabel="Previous"
+  nextLabel="Next"
+  screenReaderPaginationLabel="Pagination"
+  screenReaderPageLabel="page"
+  screenReaderCurrentLabel="You're on page"
+
   aria-label="Select page"
 >
-</mat-paginator>
+</pagination-controls>

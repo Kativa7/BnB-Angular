@@ -4,12 +4,13 @@ import { CatalogComponent } from './components/catalog/catalog.component';
 import { AddListingComponent } from './components/add-listing/add-listing.component';
 import { MaterialModule } from '../material.module';
 import { CatalogListingComponent } from './components/catalog-listing/catalog-listing.component';
-import { CatalogService } from './services/catalog.service';
+import { CatalogService } from '../core/services/catalog.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListingDetailsComponent } from './components/listing-details/listing-details.component';
 import { RouterModule } from '@angular/router';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './components/search/search.component';
 import { EditListingComponent } from './components/edit-listing/edit-listing.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -28,8 +29,9 @@ import { EditListingComponent } from './components/edit-listing/edit-listing.com
     MaterialModule,
     FormsModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
-  providers: [CatalogService]
+  providers: []
 })
 export class FeatureModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { CatalogService } from 'src/app/feature/services/catalog.service';
-import { UserService } from '../../services/user.service';
+import { CatalogService } from 'src/app/core/services/catalog.service';
+import { UserService } from '../../../core/services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -23,10 +23,7 @@ export class ProfileComponent implements OnInit {
     this.user = JSON.parse(this.user);
     this.hotels = this.user.booked;
     
-    console.log(this.user);
   }
-
-
 
 
 

@@ -11,7 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { FeatureModule } from './feature/feature.module';
-import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 
 @NgModule({

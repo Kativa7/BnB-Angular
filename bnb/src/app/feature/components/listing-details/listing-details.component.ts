@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
-import { UserService } from 'src/app/user/services/user.service';
-import Listing from '../../models/Listing';
-import { CatalogService } from '../../services/catalog.service';
+import { UserService } from 'src/app/core/services/user.service';
+import Listing from '../../../core/models/Listing';
+import { CatalogService } from '../../../core/services/catalog.service';
 
 @Component({
   selector: 'app-listing-details',
