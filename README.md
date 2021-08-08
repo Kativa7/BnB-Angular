@@ -8,7 +8,7 @@ Server - A Node.js SERVER provided in repo. Rum npm install and npm start to con
 
 Guest and User functionality:
 
-Guest can regsiter, login and view catalog.
+Guest can register, login and view catalog.
 User can add a listing (which can then edit and/or delete), book a listing and has a profile page. 
 
 Architecture:
