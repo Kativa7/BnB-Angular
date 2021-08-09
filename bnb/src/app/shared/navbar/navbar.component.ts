@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/core/services/user.service';
 
@@ -9,6 +9,7 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class NavbarComponent implements OnInit {
   @Output() onToggleSideNav = new EventEmitter<void>();
+  @Input() errorMsg: string | undefined;
   constructor(public userService: UserService, private router: Router) {
   }
 
