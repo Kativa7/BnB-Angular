@@ -19,13 +19,12 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.user = localStorage.getItem('currentUser');
-    this.user = JSON.parse(this.user);
-    this.hotels = this.user.booked;
+    this.user = this.userService.getUserInfo().subscribe(data =>{
+      this.user = data;
+      this.hotels = this.user.booked;
+    });
     
   }
-
-
 
   openDetails(id: number) {
     this.catalogService.getListingById(id).subscribe({

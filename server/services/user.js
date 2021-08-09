@@ -60,10 +60,16 @@ function generateToken(user) {
   return token;
 }
 
+async function getUserInfo(id){
+  const user = await User.findOne({ _id: id });
+  return user;
+}
+
 
 
 
 module.exports = {
   register,
   login,
+  getUserInfo
 };

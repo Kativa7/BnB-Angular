@@ -18,17 +18,17 @@ export class UserService {
   }
 
   login(data:{ email: string, password: string}) {
-    return this.http.post<UserLogin>(URL + '/login', data, { withCredentials: false});
+    return this.http.post<UserLogin>(URL + '/login', data);
 
   }
 
   logout(){
-    this.http.get(URL + '/logout', {})
+    this.http.get(URL + '/logout')
     localStorage.clear();
   }
 
-  getUser() {
-    return localStorage.getItem('currentUser')
+  getUserInfo() {
+  return this.http.get(URL + '/profile');
   }
 
   isLoggedIn(): boolean{
@@ -44,7 +44,7 @@ export class UserService {
     this.user = localStorage.getItem('currentUser');
     this.user = JSON.parse(this.user);
     let match = this.user?.booked.filter((l: number) => l === listingId);
-   
+   console.log(match)
    if(match?.length> 0){
      return true;
    }else{

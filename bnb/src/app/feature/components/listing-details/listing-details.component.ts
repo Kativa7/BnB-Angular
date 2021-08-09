@@ -20,8 +20,7 @@ export class ListingDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.user = this.userService.getUser();
-    this.user = JSON.parse(this.user);
+    this.user = this.userService.getUserInfo();
   }
 
   ngOnInit(): void {
@@ -35,7 +34,7 @@ export class ListingDetailsComponent implements OnInit {
   bookListing(id: number){
     this.catalogService.bookAListing(id).subscribe({
       next:  () => {
-        this.router.navigate(['/catalog'])
+        this.router.navigate(['/profile'])
       },
       error: (err) => {
         console.error(err)
