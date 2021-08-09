@@ -41,3 +41,5 @@ export class ProfileComponent implements OnInit {
     // this.catalogService.getAll().filter(h => h.owner === id)
   }
 }
+
+

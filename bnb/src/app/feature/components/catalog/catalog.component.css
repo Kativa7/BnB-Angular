@@ -1,4 +1,4 @@
-.title {
+.text {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,6 +46,9 @@
 color: transparent;
 }
 
+.msg{
+  margin: 0 0 0 50% ;
+}
 
 pagination-controls{
   display: flex;

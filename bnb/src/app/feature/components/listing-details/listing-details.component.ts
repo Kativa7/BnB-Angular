@@ -14,21 +14,25 @@ export class ListingDetailsComponent implements OnInit {
   listing!: Listing;
   user: any;
   listings!: Array<Listing>
+  isValid: boolean = true;
+
   constructor(
     private catalogService: CatalogService,
     public userService: UserService,
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.user = this.userService.getUserInfo();
   }
-
+  
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+    this.user = localStorage.getItem('currentUser');
+    this.user = JSON.parse(this.user);
  
     this.catalogService
       .getListingById(this.id)
       .subscribe((data) => (this.listing = data));
+      
   }
 
   bookListing(id: number){
@@ -40,6 +44,7 @@ export class ListingDetailsComponent implements OnInit {
         console.error(err)
       }
     });
+  
   }
 
   updateCatalog(){
@@ -59,7 +64,9 @@ export class ListingDetailsComponent implements OnInit {
       }
     });
   }
+  
 
+ 
   }
 
 

@@ -1,7 +1,7 @@
-<h2 class="title" style="font-size: 30px">
+<h2 class="text" style="font-size: 30px">
   Find a great place to stay on your next trip
 </h2>
-<h6 class="title" style="font-size: 20px">Let's get started.</h6>
+<h6 class="text" style="font-size: 20px">Let's get started.</h6>
 
 
 <div class="container">
@@ -21,6 +21,7 @@
 
 
 <div class="wrapper" *ngIf="allListings">
+  <div class="text msg" *ngIf="allListings?.length == 0">No listings yet! Be the first to <a routerLink="/catalog/add">add one </a></div>
   <div class="" *ngFor="let listing of allListings | paginate: {id: 'allListings', itemsPerPage: pageSize, currentPage: currentPage}">
     <app-catalog-listing [listing]="listing"></app-catalog-listing>
   </div>
