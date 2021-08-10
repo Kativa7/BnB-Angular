@@ -9,7 +9,6 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class NavbarComponent implements OnInit {
   @Output() onToggleSideNav = new EventEmitter<void>();
-  @Input() errorMsg: string | undefined;
   constructor(public userService: UserService, private router: Router) {
   }
 

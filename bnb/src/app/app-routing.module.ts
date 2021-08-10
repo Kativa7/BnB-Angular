@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/components/home/home.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
+import { AuthGuardService } from './core/guards/auth-guard.service';
 import { AddListingComponent } from './feature/components/add-listing/add-listing.component';
 import { CatalogComponent } from './feature/components/catalog/catalog.component';
 import { EditListingComponent } from './feature/components/edit-listing/edit-listing.component';
@@ -16,13 +17,13 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   {
     path: 'catalog',
     children: [
       { path: '', pathMatch: 'full', component: CatalogComponent },
-      { path: 'add', component: AddListingComponent },
-      { path: 'edit/:id', component: EditListingComponent },
+      { path: 'add', component: AddListingComponent, canActivate: [AuthGuardService] },
+      { path: 'edit/:id', component: EditListingComponent, canActivate: [AuthGuardService] },
       { path: ':id', component: ListingDetailsComponent },
       { path: 'search', component: SearchComponent }
   

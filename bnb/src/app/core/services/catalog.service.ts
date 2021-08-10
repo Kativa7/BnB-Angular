@@ -48,13 +48,12 @@ export class CatalogService {
   deleteListing(id: number) {
     return this.http.delete(URL + `/${id}`);
   }
+  bookAListing(id: number) {
+    return this.http.get(URL + `/book/${id}`);
+  }
 
   getMyListings() {
     return this.http.get<Array<Listing>>(URL);
-  }
-
-  bookAListing(id: number) {
-    return this.http.get(URL + `/book/${id}`);
   }
 
 }

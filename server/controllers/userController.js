@@ -38,7 +38,7 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/profile", async (req, res) => {
-  const id = req.user._id;
+  const id = req.user?._id;
   try {
     const user = await getUserInfo(id);
     res.status(200).json(user);
