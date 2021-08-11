@@ -36,11 +36,11 @@ export class UserService {
   }
 
   isLoggedIn(): boolean {
-    let user = localStorage.getItem('currentUser');
-    if(!user){
-      return false
-    }else{
-      return true
+    this.user = localStorage.getItem('currentUser');
+    if (!this.user) {
+      return false;
+    } else {
+      return true;
     }
   }
 
@@ -48,16 +48,16 @@ export class UserService {
     return this.isLoggedIn();
   }
 
-
-  // hasBooked(listingId: number): boolean {
-  //   this.user = localStorage.getItem('currentUser');
+    
+  // hasBooked(listingId: number) {
+  //   this.getUserInfo().subscribe(data => {
+  //    this.user = data;
+  //   });
   //   this.user = JSON.parse(this.user);
-  //   let match = this.user?.booked.filter((l: number) => l === listingId);
-  //   console.log(match);
-  //   if (match?.length > 0) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+
+   
+  //   console.log(this.user);
+  //   return  this.user.booked?.includes(listingId);
+  //  }
+ 
 }

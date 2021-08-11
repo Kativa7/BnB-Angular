@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { UserService } from 'src/app/core/services/user.service';
 import Listing from '../../../core/models/Listing';
@@ -15,6 +15,7 @@ export class ListingDetailsComponent implements OnInit {
   user: any;
   listings!: Array<Listing>
   isValid: boolean = true;
+  hasBooked!: boolean;
 
   constructor(
     private catalogService: CatalogService,
@@ -22,18 +23,19 @@ export class ListingDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {
+    
   }
   
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this.user = localStorage.getItem('currentUser');
-    this.user = JSON.parse(this.user);
- 
+    this.user = this.userService.getUserInfo().subscribe(data =>{
+      this.user = data; 
+    })
     this.catalogService
       .getListingById(this.id)
-      .subscribe((data) => (this.listing = data));
-      
-  }
+      .subscribe((data) => (this.listing = data))
+ 
+    }
 
   bookListing(id: number){
     this.catalogService.bookAListing(id).subscribe({
@@ -54,17 +56,19 @@ export class ListingDetailsComponent implements OnInit {
   }
 
   deleteListing(id: number) {
-    this.catalogService.deleteListing(id).subscribe({
-      next:  () => {
-        this.updateCatalog();
-        this.router.navigate(['/catalog'])
-      },
-      error: (err) => {
-        console.error(err)
-      }
-    });
-  }
+    if (window.confirm('Are you sure you want to delete this listing?')){
+      this.catalogService.deleteListing(id).subscribe({
+        next:  () => {
+          this.updateCatalog();
+          this.router.navigate(['/catalog'])
+        },
+        error: (err) => {
+          console.error(err)
+        }
+      });
+    }
   
+  }
 
  
   }

@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Listing from '../../../core/models/Listing';
 import { CatalogService } from '../../../core/services/catalog.service';
@@ -23,12 +23,12 @@ export class EditListingComponent  {
     this.catalogService.getListingById(this.id).subscribe((data) => {
       this.listing = data;
       this.form = this.fb.group({
-        'title': [this.listing.title],
-        'location': [this.listing.location],
-        'img': [this.listing.img],
-        'price': [this.listing.price],
-        'category': [this.listing.category],
-        'description': [this.listing.description],
+        'title': [this.listing.title, [Validators.required]],
+        'location': [this.listing.location, [Validators.required]],
+        'img': [this.listing.img, [Validators.required, Validators.pattern('^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?')]],
+        'price': [this.listing.price, [Validators.required, Validators.min(0.01)]],
+        'category': [this.listing.category, [Validators.required]],
+        'description': [this.listing.description,  [ Validators.maxLength(200)]],
       });
     });
   }

@@ -22,26 +22,25 @@
 }
 
 .product-text{
-    height: 300px;
+    height: 220px;
     width: 325px;
 }
 
 .product-text h1{
-    margin: 0 0 0 40px;
+    margin: 0 0 0 20px;
     padding-top: 50px;
     font-size: 34px;
 
 }
 
 .product-text h2{
-    margin: 0 0 20px 20px;
+    margin: 0 0 10px 10px;
     font-size: 13px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
 }
 .product-text p {
-    height: 125px;
     margin: 0 20px 0 20px;
     line-height: 1.7em;
     font-size: 15px;
@@ -51,17 +50,13 @@
 }
 
 .product-price-btn{
-    height: 103px;
-    width: 325px;
-    margin-top: 17px;
+   
+    margin-top: 50px;
     position: relative;
 }
 .product-price-btn p{
     display: inline-block;
-    position: absolute;
-    top: -13px;
-    height: 50px;
-    margin: 0 0 0 38px;
+      margin: 30px 0 0 20px;
     font-size: 28px;
     font-weight: lighter;
 }
@@ -73,10 +68,9 @@ span{
 }
 .product-price-btn button{
     float: right;
-    /* display: inline-block; */
     height: 50px;
     width: 160px;
-    margin: 0px 20px 5px 0;
+    margin: 20px 20px 5px 0;
     box-sizing: border-box;
     border: transparent;
     font-size: 14px;
@@ -87,5 +81,3 @@ span{
     outline: none;
 
 }
-
-

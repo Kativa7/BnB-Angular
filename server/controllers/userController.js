@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 const { register, login, getUserInfo } = require("../services/user");
+const { getById } = require("../services/listing");
 
 router.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
@@ -40,11 +41,13 @@ router.get("/logout", (req, res) => {
 router.get("/profile", async (req, res) => {
   const id = req.user?._id;
   try {
-    const user = await getUserInfo(id);
+    const user = await getUserInfo(id); 
     res.status(200).json(user);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
 });
+
+
 
 module.exports = router;

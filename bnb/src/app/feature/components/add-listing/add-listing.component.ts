@@ -15,7 +15,7 @@ export class AddListingComponent  {
     this.form = this.fb.group({
 title: ['', [Validators.required]],
 location: ['', [Validators.required]],
-img: ['', [Validators.required, Validators.pattern('(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})')]],
+img: ['', [Validators.required, Validators.pattern('^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?')]],
 price: ['',[ Validators.required, Validators.min(0.01)]],
 category: ['', [Validators.required]],
 description: ['', [ Validators.maxLength(200)]],
