@@ -7,15 +7,16 @@ async function getAll() {
   return listings;
 }
 
-
 async function getById(id) {
   return Listing.findById(id);
 }
 
 async function create(data, userId) {
+  const user = await User.findById(userId);
   const result = new Listing(data);
   await result.save();
-
+  user.offered.push(result);
+  await user.save();
   return result;
 }
 
@@ -29,7 +30,7 @@ async function remove(id) {
   return await Listing.findByIdAndDelete(id);
 }
 
-async function book(listingId, userId){
+async function book(listingId, userId) {
   const user = await User.findById(userId);
   user.booked.push(listingId);
   return user.save();
@@ -41,5 +42,5 @@ module.exports = {
   create,
   update,
   remove,
-  book
+  book,
 };

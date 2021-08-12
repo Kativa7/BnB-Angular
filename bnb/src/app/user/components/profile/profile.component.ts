@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
     this.user = this.userService.getUserInfo().subscribe(data =>{
       this.user = data;
       this.hotels = this.user.booked;
+      this.myHotels = this.user.offered;
     });
     
   }
@@ -37,9 +38,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  showDetails(id: number) {
-    // this.catalogService.getAll().filter(h => h.owner === id)
-  }
+ 
 }
 
 

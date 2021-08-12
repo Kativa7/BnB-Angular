@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/core/services/user.service';
 
@@ -7,16 +7,16 @@ import { UserService } from 'src/app/core/services/user.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   @Output() onToggleSideNav = new EventEmitter<void>();
   constructor(public userService: UserService, private router: Router) {
   }
 
-  ngOnInit(): void {}
 
   toggleSidenav() {
     this.onToggleSideNav.emit();
   }
+
  onLogout(){
    this.userService.logout();
    this.router.navigate(['/catalog'])
