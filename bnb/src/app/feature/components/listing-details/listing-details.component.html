@@ -1,37 +1,66 @@
-
 <div class="container">
-<ng-template [ngIf]="listing">
-  <div class="wrapper">
-    <div class="product-img">
-      <img src="{{ listing.img }}" height="420" width="320" />
-    </div>
-    <div class="product-info">
-      <div class="product-text">
-        <h1>{{ listing.title }}</h1>
-        <h2>{{ listing.category }} located in {{ listing.location }} </h2>
-        <p>{{ listing.description === '' ? 'No descrition was provided.' : listing.description}}...</p>
+  <ng-template [ngIf]="listing">
+    <div class="wrapper">
+      <div class="product-img">
+        <img src="{{ listing.img }}" height="420" width="320" />
       </div>
-      <div class="product-price-btn">
-        <p>
-          <span>{{ listing.price | currency:'EUR'}}</span
+      <div class="product-info">
+        <div class="product-text">
+          <h1>{{ listing.title }}</h1>
+          <h2>{{ listing.category }} located in {{ listing.location }}</h2>
+          <p>
+            {{
+              listing.description === ""
+                ? "No descrition was provided."
+                : listing.description
+            }}...
+          </p>
+        </div>
+        <div class="product-price-btn">
+          <p>
+            <span>{{ listing.price | currency: "EUR" }}</span>
+          </p>
+
+          <button
+            *ngIf="
+              user?._id != listing.owner && !user?.booked?.includes(listing._id)
+            "
+            class="btn"
+            type="button"
+            (click)="bookListing(listing._id)"
           >
-        </p>
-       
-        <button *ngIf="user?._id != listing.owner && !user?.booked?.includes(listing._id) " class="btn" type="button" (click)="bookListing(listing._id)">Book Now</button>
-        <p *ngIf="user?.booked?.includes(listing._id)">Already booked!</p>
-        <button *ngIf="user?._id === listing?.owner" class="btn owner" style="background-color: rgb(112, 230, 200);
-        " type="button" routerLink="/catalog/edit/{{listing._id}}">Edit</button>
-          <button *ngIf="user?._id === listing?.owner" class="btn " style="background-color: rgb(238, 73, 155);
-          " type="button" (click)="deleteListing(listing._id)">Delete</button>
-
+            Book Now
+          </button>
+          <p *ngIf="user?.booked?.includes(listing._id)">Already booked!</p>
+          <button
+            *ngIf="user?._id === listing?.owner"
+            class="btn owner"
+            style="background-color: rgb(112, 230, 200)"
+            type="button"
+            routerLink="/catalog/edit/{{ listing._id }}"
+          >
+            Edit
+          </button>
+          <button
+            *ngIf="user?._id === listing?.owner"
+            class="btn"
+            style="background-color: rgb(238, 73, 155)"
+            type="button"
+            (click)="deleteListing(listing._id)"
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
+  </ng-template>
+
+  <app-reviews></app-reviews>
+
+  <div class="msg" *ngIf="reviews?.length == 0">
+    No reviews yet! Be the first to leave a review.
   </div>
-</ng-template>
-
-<app-reviews></app-reviews>
-
-  <div class="msg" *ngIf="reviews?.length == 0">No reviews yet! Be the first to leave a review.</div>
-  <div  *ngFor="let review of reviews">
+  <div *ngFor="let review of reviews">
     <app-review-child [review]="review"></app-review-child>
   </div>
+</div>

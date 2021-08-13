@@ -2,9 +2,11 @@
   <form #form="ngForm" (ngSubmit)="postReview(form)">
       <div class="main">
     <span>Your username:</span><br />
-    <input type="text" name="author" ngModel /><br />
+    <input type="text" name="author" required ngModel matInput/><br />
+    <mat-error *ngIf="form.controls?.author?.touched && form.controls?.author?.errors?.required">Please fill in your username!</mat-error><br />
     <span>Leave review:</span><br />
-    <textarea name="content" cols="30" rows="5" ngModel></textarea><br />
+    <textarea name="content" cols="30" rows="5" required ngModel matInput></textarea><br />
+    <mat-error *ngIf="form.controls?.content?.touched && form.controls?.content?.errors?.required">You have to provide some text.</mat-error><br />
     <input class="btn" type="submit" value="Send"  />
 </div>
   </form>

@@ -44,7 +44,6 @@ export class JwtInterceptor implements HttpInterceptor {
         token: data.accessToken,
         email: data.email,
         id: data._id,
-        booked: data.booked
       })
     );
   }

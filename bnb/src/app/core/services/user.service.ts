@@ -11,7 +11,7 @@ const URL = 'http://localhost:5000/user';
   providedIn: 'root',
 })
 export class UserService {
-  user!: any;
+  user: any;
   constructor(private http: HttpClient) {}
 
   register(data: {
@@ -47,17 +47,5 @@ export class UserService {
   isAuthenticated(): boolean {
     return this.isLoggedIn();
   }
-
-    
-  // hasBooked(listingId: number) {
-  //   this.getUserInfo().subscribe(data => {
-  //    this.user = data;
-  //   });
-  //   this.user = JSON.parse(this.user);
-
-   
-  //   console.log(this.user);
-  //   return  this.user.booked?.includes(listingId);
-  //  }
  
 }

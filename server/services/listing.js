@@ -48,9 +48,7 @@ const listing = await Listing.findById(id);
 }
 
 async function getReviews(id){
-
 const reviews = await Review.find({listingId: id});
-  console.log(reviews);
 return reviews;
 }
 

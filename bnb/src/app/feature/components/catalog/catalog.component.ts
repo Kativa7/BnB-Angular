@@ -20,7 +20,6 @@ export class CatalogComponent implements OnInit {
     });
   }
 
-
   changePage(page: any){
     this.currentPage = page;
   }

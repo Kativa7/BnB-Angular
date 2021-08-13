@@ -17,9 +17,6 @@ export class RegisterComponent {
     this.userService.register({username, email, password}).subscribe({
       next:  () => {
         this.router.navigate(['/catalog'])
-      },
-      error: (err) => {
-        console.error(err)
       }
     });
   }
