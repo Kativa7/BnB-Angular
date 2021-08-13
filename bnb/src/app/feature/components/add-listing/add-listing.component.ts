@@ -27,7 +27,7 @@ add(){
   this.catalogService.addListing({title, location, img, price, category, description}).subscribe({
     next: () => {
   
-      this.router.navigate(['/catalog'])
+      this.router.navigate(['/profile'])
     },
     error: (err) => {
       console.error(err)

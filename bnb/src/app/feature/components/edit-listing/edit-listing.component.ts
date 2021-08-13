@@ -36,7 +36,7 @@ export class EditListingComponent  {
  edit(){
 this.catalogService.editListing(this.id, this.form.value).subscribe({
   next:  () => {
-    this.router.navigate(['/catalog'])
+    this.router.navigate([`/catalog/${this.id}`])
   },
   error: (err) => {
     console.error(err)

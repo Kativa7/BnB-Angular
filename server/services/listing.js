@@ -3,7 +3,7 @@ const User = require("../models/User");
 const Review = require("../models/Review");
 
 async function getAll() {
-  const listings = Listing.find().lean();
+  const listings = Listing.find().sort({price: -1}).lean();
 
   return listings;
 }
