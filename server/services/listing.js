@@ -1,5 +1,6 @@
 const Listing = require("../models/Listing");
 const User = require("../models/User");
+const Review = require("../models/Review");
 
 async function getAll() {
   const listings = Listing.find().lean();
@@ -8,7 +9,7 @@ async function getAll() {
 }
 
 async function getById(id) {
-  return Listing.findById(id);
+  return Listing.findById(id).populate('reviews');
 }
 
 async function create(data, userId) {
@@ -36,6 +37,23 @@ async function book(listingId, userId) {
   return user.save();
 }
 
+async function postReview(id, review){
+const listing = await Listing.findById(id);
+ const newReview = new Review(review);
+ await newReview.save();
+
+ listing.reviews.push(newReview);
+ return listing.save();
+
+}
+
+async function getReviews(id){
+
+const reviews = await Review.find({listingId: id});
+  console.log(reviews);
+return reviews;
+}
+
 module.exports = {
   getAll,
   getById,
@@ -43,4 +61,6 @@ module.exports = {
   update,
   remove,
   book,
+  postReview,
+  getReviews
 };

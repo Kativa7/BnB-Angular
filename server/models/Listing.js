@@ -8,6 +8,7 @@ const schema = new Schema({
   category: { type: String, required:[true, 'Category is required'],  enum: ['house', 'apartment', 'room', 'other'] },
   description: { type: String },
   owner: { type: Schema.Types.ObjectId, ref: "User" },
+  reviews: [{type: Schema.Types.ObjectId, ref: "Review" }]
 });
 
 module.exports = model("Listing", schema);

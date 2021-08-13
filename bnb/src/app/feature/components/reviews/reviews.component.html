@@ -1,0 +1,11 @@
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="postReview(form)">
+      <div class="main">
+    <span>Your username:</span><br />
+    <input type="text" name="author" ngModel /><br />
+    <span>Leave review:</span><br />
+    <textarea name="content" cols="30" rows="5" ngModel></textarea><br />
+    <input class="btn" type="submit" value="Send"  />
+</div>
+  </form>
+</div>

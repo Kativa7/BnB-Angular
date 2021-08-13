@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import Listing from 'src/app/core/models/Listing';
 import CreateListing from '../models/CreateListing';
+import Review from '../models/Review';
 
 const URL = 'http://localhost:5000/data/catalog';
 
@@ -55,5 +56,14 @@ export class CatalogService {
   getMyListings() {
     return this.http.get<Array<Listing>>(URL);
   }
+
+review(id: number, data: {author: string, content: string} ){
+  return this.http.post<Review>(URL + `/reviews/${id}/create`, data)
+}
+
+getReviews(id:number){
+  return this.http.get<Array<Review>>(URL + `/reviews/${id}/create`);
+
+}
 
 }

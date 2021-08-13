@@ -1,7 +1,11 @@
+.container{
+    min-height: 120vh;
+}
+
 .wrapper{
     height: 430px;
     width: 650px;
-    margin: 150px auto;
+    margin: 50px auto;
     border-radius: 7px 7px 7px 7px;
     box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
 }
@@ -79,5 +83,10 @@ span{
     letter-spacing: 0.2em;
     cursor: pointer;
     outline: none;
+
+}
+.msg{
+    max-width: 400px;
+    margin: 20px auto;
 
 }

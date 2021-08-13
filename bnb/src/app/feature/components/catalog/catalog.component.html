@@ -4,22 +4,6 @@
 <h6 class="text" style="font-size: 20px">Let's get started.</h6>
 
 
-<div class="container">
-  <p>Search for accomodation using the form below:</p>
-  <form #form="ngForm">
-    <input
-      class="search-input"
-      name="query"
-      type="search"
-      placeholder="Enter key words here"
-      required
-      ngModel = searchBox
-    />
-    <button class="btn" type="submit" [disabled]="form.invalid">Search</button>
-  </form>
-</div>
-
-
 <div class="wrapper" *ngIf="allListings">
   <div class="text msg" *ngIf="allListings?.length == 0">No listings yet! Be the first to <a routerLink="/catalog/add">add one </a></div>
   <div class="" *ngFor="let listing of allListings | paginate: {id: 'allListings', itemsPerPage: pageSize, currentPage: currentPage}">

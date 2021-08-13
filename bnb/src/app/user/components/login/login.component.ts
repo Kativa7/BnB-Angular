@@ -9,8 +9,6 @@ import { UserService } from '../../../core/services/user.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  logginFailed!: boolean;
-  error: string | undefined;
   constructor(private router: Router, private userService: UserService) {}
 
   login(form: NgForm) {

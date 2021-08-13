@@ -7,7 +7,6 @@ import { AddListingComponent } from './feature/components/add-listing/add-listin
 import { CatalogComponent } from './feature/components/catalog/catalog.component';
 import { EditListingComponent } from './feature/components/edit-listing/edit-listing.component';
 import { ListingDetailsComponent } from './feature/components/listing-details/listing-details.component';
-import { SearchComponent } from './feature/components/search/search.component';
 import { LoginComponent } from './user/components/login/login.component';
 import { ProfileComponent } from './user/components/profile/profile.component';
 import { RegisterComponent } from './user/components/register/register.component';
@@ -25,7 +24,6 @@ const routes: Routes = [
       { path: 'add', component: AddListingComponent, canActivate: [AuthGuardService] },
       { path: 'edit/:id', component: EditListingComponent, canActivate: [AuthGuardService] },
       { path: ':id', component: ListingDetailsComponent },
-      { path: 'search', component: SearchComponent }
   
   ],
   },

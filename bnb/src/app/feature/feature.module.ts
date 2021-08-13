@@ -8,9 +8,10 @@ import { CatalogService } from '../core/services/catalog.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListingDetailsComponent } from './components/listing-details/listing-details.component';
 import { RouterModule } from '@angular/router';
-import { SearchComponent } from './components/search/search.component';
 import { EditListingComponent } from './components/edit-listing/edit-listing.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { ReviewChildComponent } from './components/review-child/review-child.component';
 
 
 
@@ -21,8 +22,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AddListingComponent,
     CatalogListingComponent,
     ListingDetailsComponent,
-    SearchComponent,
     EditListingComponent,
+    ReviewsComponent,
+    ReviewChildComponent,
   ],
   imports: [
     CommonModule,

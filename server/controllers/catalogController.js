@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { parseError } = require("../middlewares/util");
 const { isUser, isOwner } = require("../middlewares/guards");
 const preloader = require("../middlewares/preloader");
-const { getAll, create, update, remove, book } = require("../services/listing");
+const { getAll, create, update, remove, book, postReview, getReviews } = require("../services/listing");
 const Listing = require("../models/Listing");
 
 router.get("/", async (req, res) => {
@@ -83,6 +83,36 @@ router.get("/book/:id", isUser(), async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
+
+router.post('/reviews/:id/create', isUser(), async (req, res) => {
+  const listingId = req.params.id;
+  const review = {
+    author: req.body.author,
+    content: req.body.content,
+    listingId: req.params.id
+  }
+  try{
+    const result = await postReview(listingId, review);
+    res.status(201).json(result);
+
+  }catch(err){
+    console.log(err.message);
+    res.status(400).json({ message: err.message });
+  }
+})
+
+router.get('/reviews/:id/create',  async (req, res) => {
+  const listingId = req.params.id;
+  
+  try{
+    const result = await getReviews(listingId);
+    res.status(200).json(result);
+
+  }catch(err){
+    console.log(err.message);
+    res.status(400).json({ message: err.message });
+  }
+})
 
 
 module.exports = router;
