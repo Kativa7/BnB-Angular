@@ -19,7 +19,7 @@ export class NavbarComponent {
 
  onLogout(){
    this.userService.logout();
-   this.router.navigate(['/catalog'])
+   this.router.navigate(['/']);
 
  }
 
