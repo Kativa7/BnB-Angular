@@ -18,7 +18,8 @@ export class ReviewsComponent {
 
     this.catalogService.review(id, { author, content }).subscribe({
       next: () => {
-        this.router.navigate([`/catalog`]);
+        this.router.navigate([`/catalog/${id}`]);
+        window.location.reload();
       },
     });
   }
